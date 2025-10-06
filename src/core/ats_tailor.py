@@ -243,21 +243,24 @@ class ATSTailor:
         
         # Generate bullet rewrites for weak/missing requirements
         for match in requirement_matches:
-            if match.status == 'weak':
+            if match.status in ['weak', 'missing']:
+                # Higher score gain for missing, lower for weak
+                score_gain = self.scorer.estimate_score_gain(ats_score, 'coverage' if match.status == 'missing' else 'explicitness')
+                
                 # Generate rewrite suggestion
                 suggestion = self.suggestion_generator.create_suggestion(
                     suggestion_type=SuggestionType.BULLET_REWRITE,
-                    target_section=match.suggested_edit_target.split('>')[0].strip(),
-                    target_location=match.suggested_edit_target,
-                    current_text=match.evidence,
+                    target_section=match.suggested_edit_target.split('>')[0].strip() if match.suggested_edit_target else "Experience",
+                    target_location=match.suggested_edit_target or "Experience > bullet",
+                    current_text=match.evidence or "Add new bullet point",
                     suggested_text=self.suggestion_generator.generate_bullet_rewrite(
-                        current_bullet=match.evidence or "",
+                        current_bullet=match.evidence or "Worked on relevant projects",
                         jd_requirement=match.requirement,
                         requirement_skills=match.skills
                     ),
                     reason=f"JD requires: {match.requirement}",
                     jd_requirement=match.requirement,
-                    estimated_score_gain=self.scorer.estimate_score_gain(ats_score, 'explicitness')
+                    estimated_score_gain=score_gain
                 )
                 suggestions.append(suggestion)
         
@@ -284,7 +287,7 @@ class ATSTailor:
         # Sort by estimated score gain
         suggestions.sort(key=lambda s: s.estimated_score_gain, reverse=True)
         
-        return suggestions[:10]  # Top 10
+        return suggestions[:20]  # Top 20 (increased from 10)
     
     def _compile_result(
         self,
