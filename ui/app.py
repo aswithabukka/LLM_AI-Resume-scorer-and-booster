@@ -99,9 +99,9 @@ def main():
         if llm_backend == "ollama":
             ollama_model = st.selectbox(
                 "Ollama Model",
-                ["llama3.2:3b", "llama3.1:8b", "llama3.1:70b", "mistral", "qwen2.5:7b"],
-                index=1,
-                help="llama3.2:3b = Fastest | llama3.1:8b = Balanced | llama3.1:70b = Best quality (40GB RAM)"
+                ["llama3.1:8b", "llama3.2:3b", "mistral", "qwen2.5:7b"],
+                index=0,
+                help="llama3.1:8b = Balanced & recommended | llama3.2:3b = Fastest | Add more with 'ollama pull <model>'"
             )
             st.info("✅ **FREE** | 🔒 **Private** | Make sure Ollama is running")
             
