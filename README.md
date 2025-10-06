@@ -65,13 +65,40 @@ Open http://localhost:8501
 
 ### Free & Local (Ollama)
 - llama3.2:3b, llama3.1:8b, llama3.1:70b
+- mistral, qwen2.5:7b, or any Ollama model
 
 ### Cloud-based (API key required)
-- **OpenAI**: GPT-4o, GPT-4o-mini (~$0.02/resume)
-- **Anthropic**: Claude 3.5 Sonnet, Claude 3 Opus (~$0.015/resume)
-- **Google**: Gemini 2.0 Flash, Gemini 1.5 Pro (~$0.001/resume)
+- **OpenAI**: GPT-4o, GPT-4o-mini, o1-preview (~$0.002-0.02/resume)
+- **Anthropic**: Claude 3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku (~$0.001-0.075/resume)
+- **Google**: Gemini 2.0 Flash, Gemini 1.5 Pro, Gemini 1.5 Flash (~$0.0005-0.01/resume)
 
-Switch models in the UI sidebar.
+**Switch models anytime in the UI sidebar** - no code changes needed!
+
+### 🔧 Adding Custom Models
+
+**For Ollama**: Pull any model and it will appear in the dropdown
+```bash
+ollama pull mistral
+ollama pull codellama
+ollama pull your-custom-model
+```
+
+**For Cloud Providers**: Edit `ui/app.py` to add new model names to the dropdown list
+```python
+# Example: Add a new OpenAI model
+openai_model = st.selectbox(
+    "OpenAI Model",
+    ["gpt-4o", "gpt-4o-mini", "your-new-model"],  # Add here
+    ...
+)
+```
+
+**Different use cases**:
+- **Speed**: llama3.2:3b, Gemini Flash (fastest)
+- **Quality**: Claude 3.5 Sonnet, GPT-4o (best suggestions)
+- **Cost**: Gemini Flash, GPT-4o-mini (cheapest cloud)
+- **Privacy**: Any Ollama model (100% local)
+- **Reasoning**: Claude Opus, o1-preview (complex analysis)
 
 ---
 
