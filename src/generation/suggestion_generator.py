@@ -197,24 +197,21 @@ Rewritten summary:"""
         # Select relevant action verbs
         action_verbs = self._select_action_verbs(jd_requirement)
         
-        prompt = f"""You are a resume optimization expert. Rewrite the following resume bullet to better match a job requirement.
+        prompt = f"""Rewrite this resume bullet to match the job requirement. Output ONLY the rewritten bullet, nothing else.
 
-JD Requirement: "{jd_requirement}"
-Key skills to highlight: {', '.join(requirement_skills)}
+Current: {current_bullet}
 
-Current bullet: "{current_bullet}"
+Job requirement: {jd_requirement}
+Skills to highlight: {', '.join(requirement_skills[:3])}
 
-{f"Additional context: {'; '.join(context_facts)}" if context_facts else ""}
+Rules:
+- ONE line, max 28 words
+- Start with action verb: {', '.join(action_verbs[:3])}
+- Include skills: {', '.join(requirement_skills[:2])}
+- Add metrics if possible
+- Stay truthful
 
-Guidelines:
-1. Keep it to ONE line (max 28 words)
-2. Start with a strong action verb (suggestions: {', '.join(action_verbs[:5])})
-3. Include specific skills from the requirement if truthful
-4. Add quantified impact if possible (%, $, time saved, etc.)
-5. DO NOT invent facts - only enhance what's already there
-6. Make the connection to the JD requirement explicit
-
-Rewritten bullet (one line only):"""
+Output (bullet only):"""
         
         return prompt
     
@@ -340,53 +337,46 @@ Rewritten bullet (one line only):"""
     
     def _extract_bullet_from_response(self, response: str) -> str:
         """Extract clean bullet from LLM response"""
-        # Remove common prefixes
+        if not response or len(response.strip()) < 10:
+            return "[No suggestion generated]"
+        
         response = response.strip()
         
-        # Remove meta-text like "Here is a rewritten bullet..."
+        # Remove common meta-text prefixes
         meta_phrases = [
             "here is a rewritten bullet",
-            "here's a rewritten bullet",
+            "here's a rewritten bullet", 
             "rewritten bullet:",
             "here is the rewritten",
             "here's the rewritten",
             "revised bullet:",
             "updated bullet:",
-            "that meets the guidelines:",
         ]
         
         response_lower = response.lower()
         for phrase in meta_phrases:
-            if phrase in response_lower:
-                # Find where the actual content starts
-                idx = response_lower.find(phrase)
-                # Skip past the phrase and any following punctuation/newlines
-                response = response[idx + len(phrase):].strip()
+            if response_lower.startswith(phrase):
+                # Skip past the phrase and any following punctuation
+                response = response[len(phrase):].strip()
                 response = response.lstrip(':•-*+ \n')
                 break
         
-        # Remove bullet markers
+        # Remove bullet markers at start
         response = response.lstrip('•-*+ ')
         
-        # Take first substantial line if multiple
+        # Take first line if multiple lines
         lines = [l.strip() for l in response.split('\n') if l.strip()]
         if lines:
-            # Skip lines that are just meta-text
-            for line in lines:
-                if len(line) > 20 and not line.lower().startswith(('here', 'this', 'note')):
-                    bullet = line
-                    break
-            else:
-                bullet = lines[0]
+            bullet = lines[0]
         else:
             bullet = response
         
-        # Remove quotes if present
+        # Remove quotes
         bullet = bullet.strip('"\'')
         
-        # If still contains meta-text, return a fallback
-        if 'guideline' in bullet.lower() or 'rewritten' in bullet.lower():
-            return "[Generated suggestion - please review and customize]"
+        # Final validation - if it's just meta-text, return the raw response
+        if len(bullet) < 15:
+            return response  # Return original if too short
         
         return bullet
     
