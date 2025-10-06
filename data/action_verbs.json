@@ -1,0 +1,68 @@
+{
+  "leadership": [
+    "Led", "Directed", "Managed", "Supervised", "Coordinated", "Orchestrated",
+    "Spearheaded", "Championed", "Drove", "Guided", "Mentored", "Trained"
+  ],
+  "creation": [
+    "Built", "Developed", "Created", "Designed", "Engineered", "Architected",
+    "Implemented", "Constructed", "Established", "Launched", "Deployed", "Shipped"
+  ],
+  "improvement": [
+    "Improved", "Optimized", "Enhanced", "Streamlined", "Refined", "Upgraded",
+    "Modernized", "Revamped", "Transformed", "Accelerated", "Reduced", "Increased"
+  ],
+  "analysis": [
+    "Analyzed", "Evaluated", "Assessed", "Investigated", "Researched", "Examined",
+    "Identified", "Diagnosed", "Measured", "Quantified", "Validated", "Tested"
+  ],
+  "collaboration": [
+    "Collaborated", "Partnered", "Coordinated", "Facilitated", "Consulted",
+    "Advised", "Communicated", "Presented", "Aligned", "Engaged"
+  ],
+  "automation": [
+    "Automated", "Scripted", "Programmed", "Integrated", "Configured",
+    "Orchestrated", "Scheduled", "Pipelined"
+  ],
+  "data_science": [
+    "Modeled", "Predicted", "Forecasted", "Classified", "Clustered",
+    "Trained", "Tuned", "Experimented", "A/B tested", "Validated"
+  ],
+  "impact_metrics": {
+    "performance": [
+      "reduced latency by X%",
+      "improved throughput by X%",
+      "decreased processing time from X to Y",
+      "accelerated pipeline by Xh",
+      "cut runtime by X%"
+    ],
+    "business": [
+      "increased revenue by $X",
+      "drove X% conversion lift",
+      "improved retention by X%",
+      "generated $X in savings",
+      "boosted engagement by X%",
+      "grew user base by X%"
+    ],
+    "efficiency": [
+      "reduced costs by $X",
+      "saved X hours per week",
+      "eliminated X manual steps",
+      "automated X% of workflow",
+      "decreased error rate by X%"
+    ],
+    "scale": [
+      "processed X records/day",
+      "handled X requests/second",
+      "scaled to X users",
+      "managed X TB of data",
+      "served X million predictions"
+    ],
+    "quality": [
+      "improved accuracy from X% to Y%",
+      "achieved X% precision/recall",
+      "reduced false positives by X%",
+      "increased model AUC to X",
+      "improved F1 score by X points"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "programming_languages": {
+    "Python": ["python", "py", "python3"],
+    "SQL": ["sql", "t-sql", "pl/sql", "postgresql", "mysql"],
+    "R": ["r", "r-lang", "rstudio"],
+    "Java": ["java", "jvm"],
+    "JavaScript": ["javascript", "js", "node.js", "nodejs"],
+    "Scala": ["scala"],
+    "Go": ["golang", "go"],
+    "C++": ["c++", "cpp"],
+    "Julia": ["julia"]
+  },
+  "ml_frameworks": {
+    "PyTorch": ["pytorch", "torch"],
+    "TensorFlow": ["tensorflow", "tf", "keras"],
+    "Scikit-learn": ["scikit-learn", "sklearn", "scikit"],
+    "XGBoost": ["xgboost", "xgb"],
+    "LightGBM": ["lightgbm", "lgbm", "gbm"],
+    "Hugging Face": ["huggingface", "transformers", "hf"],
+    "JAX": ["jax"],
+    "FastAI": ["fastai", "fast.ai"]
+  },
+  "data_tools": {
+    "Pandas": ["pandas", "pd"],
+    "NumPy": ["numpy", "np"],
+    "Spark": ["spark", "pyspark", "apache spark"],
+    "Dask": ["dask"],
+    "Polars": ["polars"],
+    "Airflow": ["airflow", "apache airflow"],
+    "Prefect": ["prefect"],
+    "Dagster": ["dagster"],
+    "dbt": ["dbt", "data build tool"],
+    "Kafka": ["kafka", "apache kafka"]
+  },
+  "cloud_platforms": {
+    "AWS": ["aws", "amazon web services", "ec2", "s3", "lambda", "sagemaker", "redshift", "emr"],
+    "GCP": ["gcp", "google cloud", "bigquery", "vertex ai", "cloud functions"],
+    "Azure": ["azure", "microsoft azure", "azure ml"],
+    "Databricks": ["databricks"],
+    "Snowflake": ["snowflake"]
+  },
+  "databases": {
+    "PostgreSQL": ["postgresql", "postgres", "psql"],
+    "MySQL": ["mysql"],
+    "MongoDB": ["mongodb", "mongo"],
+    "Redis": ["redis"],
+    "Elasticsearch": ["elasticsearch", "elastic"],
+    "DynamoDB": ["dynamodb"],
+    "Cassandra": ["cassandra"],
+    "Neo4j": ["neo4j", "graph database"]
+  },
+  "ml_ops": {
+    "Docker": ["docker", "containerization"],
+    "Kubernetes": ["kubernetes", "k8s"],
+    "MLflow": ["mlflow"],
+    "Weights & Biases": ["wandb", "weights and biases"],
+    "Kubeflow": ["kubeflow"],
+    "CI/CD": ["ci/cd", "jenkins", "github actions", "gitlab ci"],
+    "Terraform": ["terraform", "iac"]
+  },
+  "llm_tools": {
+    "LangChain": ["langchain"],
+    "LlamaIndex": ["llamaindex", "llama-index"],
+    "LangGraph": ["langgraph"],
+    "Pinecone": ["pinecone"],
+    "Weaviate": ["weaviate"],
+    "ChromaDB": ["chromadb", "chroma"],
+    "OpenAI API": ["openai api", "gpt", "chatgpt"],
+    "Anthropic": ["anthropic", "claude"],
+    "Ollama": ["ollama"],
+    "vLLM": ["vllm"],
+    "RAG": ["rag", "retrieval augmented generation"]
+  },
+  "nlp_cv": {
+    "NLP": ["nlp", "natural language processing", "text mining"],
+    "Computer Vision": ["computer vision", "cv", "image processing"],
+    "Spacy": ["spacy"],
+    "NLTK": ["nltk"],
+    "OpenCV": ["opencv", "cv2"],
+    "Whisper": ["whisper", "openai whisper"],
+    "YOLO": ["yolo"],
+    "Transformers": ["transformers", "bert", "gpt", "t5"]
+  },
+  "visualization": {
+    "Tableau": ["tableau"],
+    "Power BI": ["power bi", "powerbi"],
+    "Looker": ["looker"],
+    "Matplotlib": ["matplotlib", "pyplot"],
+    "Seaborn": ["seaborn"],
+    "Plotly": ["plotly", "dash"],
+    "D3.js": ["d3", "d3.js"]
+  },
+  "statistics": {
+    "A/B Testing": ["a/b testing", "ab testing", "split testing", "experimentation"],
+    "Causal Inference": ["causal inference", "causality", "propensity score"],
+    "Hypothesis Testing": ["hypothesis testing", "statistical testing"],
+    "Bayesian Statistics": ["bayesian", "bayesian statistics"],
+    "Time Series": ["time series", "forecasting", "arima"],
+    "Regression": ["regression", "linear regression", "logistic regression"],
+    "Statistical Modeling": ["statistical modeling", "statsmodels"]
+  },
+  "soft_skills": {
+    "Stakeholder Management": ["stakeholder management", "stakeholder communication", "cross-functional"],
+    "Product Sense": ["product sense", "product thinking"],
+    "Communication": ["communication", "presentation", "storytelling"],
+    "Leadership": ["leadership", "mentoring", "team lead"],
+    "Agile": ["agile", "scrum", "sprint"],
+    "Requirements Gathering": ["requirements gathering", "requirements analysis"]
+  },
+  "domain_specific": {
+    "Healthcare": ["healthcare", "ehr", "fhir", "hipaa", "clinical"],
+    "Finance": ["finance", "fintech", "trading", "risk"],
+    "E-commerce": ["e-commerce", "ecommerce", "retail"],
+    "Marketing": ["marketing", "martech", "attribution"],
+    "Sports Analytics": ["sports analytics", "sports data"]
+  }
+}

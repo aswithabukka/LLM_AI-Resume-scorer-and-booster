@@ -1,0 +1,120 @@
+{
+  "overall_score": 33,
+  "breakdown": {
+    "coverage": 0.45454545454545453,
+    "explicitness": 0.36363636363636365,
+    "role_alignment": 0.0,
+    "keywords": 0.23529411764705882,
+    "writing": 0.4714285714285715
+  },
+  "must_haves": [
+    {
+      "requirement": "years of experience with Python and SQL",
+      "requirement_type": "must_have",
+      "skills": [
+        "Python",
+        "R",
+        "SQL"
+      ],
+      "status": "present",
+      "evidence": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "confidence": 0.9514023900032044,
+      "suggested_edit_target": "Skills"
+    },
+    {
+      "requirement": "Strong experience with machine learning frameworks (scikit-learn, PyTorch, TensorFlow)",
+      "requirement_type": "must_have",
+      "skills": [
+        "Python",
+        "R",
+        "TensorFlow",
+        "Scikit-learn",
+        "PyTorch"
+      ],
+      "status": "present",
+      "evidence": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "confidence": 0.8900805950164795,
+      "suggested_edit_target": "Skills"
+    },
+    {
+      "requirement": "Experience with A/B testing and statistical analysis",
+      "requirement_type": "must_have",
+      "skills": [
+        "R",
+        "A/B Testing"
+      ],
+      "status": "weak",
+      "evidence": "Analyzed user behavior data with SQL and Python",
+      "confidence": 0.6930150866508484,
+      "suggested_edit_target": "Experience > bullet 1"
+    },
+    {
+      "requirement": "Proficiency with cloud platforms (AWS, GCP)",
+      "requirement_type": "must_have",
+      "skills": [
+        "R",
+        "TensorFlow",
+        "AWS",
+        "GCP"
+      ],
+      "status": "weak",
+      "evidence": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "confidence": 0.6632246851921082,
+      "suggested_edit_target": "Skills"
+    },
+    {
+      "requirement": "Experience with data pipelines and ETL (Airflow, Spark)",
+      "requirement_type": "must_have",
+      "skills": [
+        "R",
+        "Airflow",
+        "Spark"
+      ],
+      "status": "weak",
+      "evidence": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "confidence": 0.7111859798431397,
+      "suggested_edit_target": "Skills"
+    }
+  ],
+  "top_edits": [
+    {
+      "target": "Experience > bullet 1",
+      "current": "Analyzed user behavior data with SQL and Python",
+      "suggested": "[LLM Error: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download] Unable to generate suggestion",
+      "reason": "JD requires: Experience with A/B testing and statistical analysis",
+      "est_score_gain": 3
+    },
+    {
+      "target": "Skills",
+      "current": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "suggested": "[LLM Error: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download] Unable to generate suggestion",
+      "reason": "JD requires: Proficiency with cloud platforms (AWS, GCP)",
+      "est_score_gain": 3
+    },
+    {
+      "target": "Skills",
+      "current": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "suggested": "[LLM Error: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download] Unable to generate suggestion",
+      "reason": "JD requires: Experience with data pipelines and ETL (Airflow, Spark)",
+      "est_score_gain": 3
+    },
+    {
+      "target": "Skills section",
+      "current": " Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel",
+      "suggested": "Python, SQL, Pandas, NumPy, Scikit-learn, Tableau, Excel, A/B Testing, TensorFlow, GCP, AWS, Spark, Airflow, PyTorch",
+      "reason": "Add missing must-have skills",
+      "est_score_gain": 3
+    }
+  ],
+  "skills_insertions": [
+    "A/B Testing",
+    "TensorFlow",
+    "GCP",
+    "AWS",
+    "Spark",
+    "Airflow",
+    "PyTorch"
+  ],
+  "summary_suggestion": "[LLM Error: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download] Unable to generate suggestion",
+  "explanation": "Significant gaps to address. Coverage: 45% - Missing key required skills. Explicitness: 36% - Need to name skills more explicitly. Role alignment: 0% - Title mismatch with target role. Keywords: 24% - Missing important technical keywords. Writing: 47% - Improve bullet structure and metrics."
+}

@@ -1,0 +1,49 @@
+# ATS-Tailor Configuration
+
+# Model settings
+models:
+  embedding_model: "BAAI/bge-large-en-v1.5"
+  reranker_model: "BAAI/bge-reranker-base"
+  llm_backend: "ollama"  # Options: ollama, openai, anthropic
+  llm_model: "llama3.1:8b"  # Try "llama3.1:70b" for better quality (requires 40GB RAM)
+  spacy_model: "en_core_web_lg"
+
+# Similarity thresholds
+matching:
+  tau_high: 0.75  # Present if similarity >= this
+  tau_low: 0.50   # Weak if tau_low <= similarity < tau_high
+  top_k_candidates: 5
+  rerank: true
+
+# ATS Scoring weights (must sum to 1.0)
+scoring:
+  coverage_weight: 0.35      # Must-have skills present
+  explicitness_weight: 0.25  # Skills named verbatim
+  role_alignment_weight: 0.15
+  keywords_weight: 0.15
+  writing_quality_weight: 0.10
+
+# Generation settings
+generation:
+  max_bullet_words: 28
+  require_quantification: true
+  temperature: 0.3
+  max_tokens: 150
+
+# Privacy settings
+privacy:
+  local_only: true
+  redact_pii: true  # Remove names, emails before any API call
+  log_queries: false
+
+# Performance
+performance:
+  batch_size: 32
+  max_workers: 4
+  cache_embeddings: true
+
+# Output
+output:
+  max_suggestions: 10
+  min_score_gain: 2  # Only show edits with >=2 point impact
+  export_format: "json"  # Options: json, docx, markdown
