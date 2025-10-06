@@ -390,10 +390,37 @@ def main():
                 
                 # Top suggestions
                 st.markdown("---")
+                
+                # Calculate how many suggestions to show based on score
+                current_score = result.overall_score
+                target_score = 85
+                
+                if current_score >= target_score:
+                    st.success(f"🎉 Excellent! Your score is {current_score}/100 - above the target of {target_score}!")
+                    num_suggestions = min(3, len(result.top_edits))  # Show top 3 if already good
+                else:
+                    score_gap = target_score - current_score
+                    # Calculate potential score gain from all suggestions
+                    total_potential_gain = sum(edit['est_score_gain'] for edit in result.top_edits[:20])
+                    estimated_final_score = min(100, current_score + total_potential_gain)
+                    
+                    # Show enough suggestions to potentially reach target
+                    num_suggestions = min(len(result.top_edits), max(10, int(score_gap / 3)))
+                    
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("Current Score", f"{current_score}/100", delta=None)
+                    with col2:
+                        st.metric("Target Score", f"{target_score}/100", delta=f"{score_gap} gap")
+                    with col3:
+                        st.metric("Potential Score", f"{estimated_final_score}/100", delta=f"+{total_potential_gain}")
+                    
+                    st.markdown(f"**Showing {num_suggestions} suggestions to help you reach {target_score}+**")
+                
                 st.markdown("## ✨ Top Suggestions")
                 
                 if result.top_edits:
-                    for i, edit in enumerate(result.top_edits[:5], 1):
+                    for i, edit in enumerate(result.top_edits[:num_suggestions], 1):
                         with st.container():
                             st.markdown(f"""
                             <div class="suggestion-card">

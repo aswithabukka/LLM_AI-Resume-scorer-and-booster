@@ -44,6 +44,7 @@ performance:
 
 # Output
 output:
-  max_suggestions: 10
-  min_score_gain: 2  # Only show edits with >=2 point impact
+  max_suggestions: 20  # Show more suggestions
+  min_score_gain: 1  # Show edits with >=1 point impact (more suggestions)
+  target_score: 85  # Keep showing suggestions until this score is reached
   export_format: "json"  # Options: json, docx, markdown
