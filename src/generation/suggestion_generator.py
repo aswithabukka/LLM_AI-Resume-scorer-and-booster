@@ -293,6 +293,10 @@ Rewritten bullet (one line only):"""
             if not ANTHROPIC_AVAILABLE:
                 return "[Error] Anthropic package not installed. Run: pip install anthropic"
             
+            import os
+            if not os.environ.get('ANTHROPIC_API_KEY'):
+                return "[Error] ANTHROPIC_API_KEY not set. Please add your API key in the UI sidebar."
+            
             client = anthropic.Anthropic()  # Reads ANTHROPIC_API_KEY from environment
             message = client.messages.create(
                 model=self.model_name,  # e.g., "claude-3-5-sonnet-20241022"
@@ -305,7 +309,10 @@ Rewritten bullet (one line only):"""
             )
             return message.content[0].text.strip()
         except Exception as e:
-            return f"[Anthropic Error: {e}] Unable to generate suggestion"
+            error_msg = str(e)
+            if "credit" in error_msg.lower() or "balance" in error_msg.lower():
+                return "[Error] Anthropic API has no credits. Please add credits or switch to Ollama (free)."
+            return f"[Anthropic Error: {error_msg[:100]}] Switch to Ollama for free local inference."
     
     def _call_gemini(self, prompt: str) -> str:
         """Call Google Gemini API"""

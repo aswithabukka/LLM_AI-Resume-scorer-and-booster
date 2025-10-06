@@ -325,9 +325,17 @@ def main():
             st.error("❌ Please provide a job description")
             return
         
-        # Validate OpenAI setup
+        # Validate API setup
         if llm_backend == "openai" and not api_key:
             st.error("❌ Please enter your OpenAI API key in the sidebar")
+            return
+        
+        if llm_backend == "anthropic" and not api_key:
+            st.error("❌ Please enter your Anthropic API key in the sidebar")
+            return
+        
+        if llm_backend == "gemini" and not api_key:
+            st.error("❌ Please enter your Google AI API key in the sidebar")
             return
         
         # Build config from UI settings
